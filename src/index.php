@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    Hay!
+<?php
+    
+?>
 </body>
 </html>
-<?php
+
