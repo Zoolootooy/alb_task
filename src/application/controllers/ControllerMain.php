@@ -12,10 +12,18 @@ class ControllerMain extends Controller
 
     public function index()
     {
-        $this->model = new ModelMain();
         $modelCountry = new ModelCountry();
         $countries = $modelCountry->getCountries();
         $this->view->generate('form.php', ['countries' =>  $countries]);
+    }
+
+    public function checkEmail(){
+
+    }
+
+    public function test()
+    {
+        echo $_POST['email'];
     }
 
 }
