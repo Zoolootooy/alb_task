@@ -1,8 +1,9 @@
-<?php require('partials/header.php'); ?>
+<?php require('partials/header.php');?>
+
 
     <div id="map"></div>
     <div class="row">
-        <div class="col-8 offset-2" hidden>
+        <div class="col-8 offset-2" >
             <div id="info"></div>
         </div>
     </div>
@@ -103,9 +104,15 @@
                 </div>
             </form>
 
-            <div>
-
+            <div class="row">
+                <div class="col-8 offset-2 text-center">
+                    <div id="icons">
+                        <a href="<?= $share_config['facebook'];?>" class="fa fa-facebook"></a>
+                        <a href="<?= $share_config['twitter'];?>" class="fa fa-twitter"></a>
+                    </div>
+                </div>
             </div>
+
 
         </div>
     </div>

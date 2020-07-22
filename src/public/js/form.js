@@ -1,9 +1,7 @@
 function funcBeforeFirst(){
-    $("#info").text("Checking email");
 }
 
 function funcSuccessFirst(data){
-    $("#info").text(data);
     if (data == "true"){
         $("#first").hide(500);
         $("#second").show(500);
@@ -17,6 +15,7 @@ function funcBeforeSecond(){
 
 function funcSuccessSecond(data){
     $("#second").hide(500);
+    $("#icons").show(500);
 }
 
 $(document).ready (function () {
@@ -45,4 +44,5 @@ $(document).ready (function () {
     });
 
     $("#second").hide();
+    $("#icons").hide();
 });
