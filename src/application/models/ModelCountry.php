@@ -7,13 +7,13 @@ use PDOStatement;
 
 class ModelCountry extends Model
 {
-    function getCountryByID($id)
+    public function getCountryByID($id)
     {
         $country = $this->conn->query("SELECT * FROM country WHERE country.id =".$id);
         return $country;
     }
 
-    function getCountries()
+    public function getCountries()
     {
         $countries = $this->conn->query("SELECT * FROM country ORDER BY name");
         return $countries;

@@ -18,7 +18,7 @@ class ControllerMain extends Controller
     }
 
     public function checkEmail(){
-
+        echo "true";
     }
 
     public function test()

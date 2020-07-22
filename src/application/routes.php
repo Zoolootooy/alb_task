@@ -2,4 +2,4 @@
 
 //$router->get('', 'ControllerMain@index');
 $router->get('', 'ControllerMain@index');
-$router->post('checkEmail', 'ControllerMain@test');
+$router->post('checkEmail', 'ControllerMain@checkEmail');

@@ -7,5 +7,7 @@ use PDOStatement;
 
 class ModelMain extends Model
 {
+    public function checkEmail(){
 
+    }
 }
