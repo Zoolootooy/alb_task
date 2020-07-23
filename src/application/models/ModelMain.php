@@ -29,6 +29,11 @@ class ModelMain extends Model
         }
     }
 
+    public function getAllMembers(){
+        $members = $this->conn->query("SELECT * FROM person ORDER BY id");
+        return $members;
+    }
+
     public function checkData($data){
 
     }

@@ -112,6 +112,7 @@ $(document).ready (function () {
     $(function(){
         $("#birthdate").datepicker();
     });
+    $("#first").hide();
     $("#second").hide();
-    $("#icons").hide();
+    // $("#icons").hide();
 });

@@ -1,6 +1,4 @@
-<?php require('partials/header.php');
-
-?>
+<?php require('partials/header.php');?>
 
 
     <div id="map"></div>
@@ -14,7 +12,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-8 offset-2">
-                    <h4 class="text-center">To participate in the conference, please fill out the form</h4>
+                    <h4 class="text-center mb-5 mt-3">To participate in the conference, please fill out the form</h4>
                 </div>
             </div>
 
@@ -123,8 +121,22 @@
             <div class="row">
                 <div class="col-8 offset-2 text-center">
                     <div id="icons">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <form action="/members_list">
+                                    <button class="btn btn-primary btn-lg btn-block">All members</button>
+                                </form>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -134,9 +146,5 @@
     </div>
 
 
-
-    <script>
-
-    </script>
 
 <?php require('partials/footer.php'); ?>
