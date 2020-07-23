@@ -3,10 +3,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="thead-dark">
                             <th>№</th>
                             <th>Photo</th>
                             <th>Name</th>
