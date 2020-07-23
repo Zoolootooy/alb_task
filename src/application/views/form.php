@@ -38,7 +38,8 @@
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="lastname">Birth date</label>
-                        <input id="birthdate" class="form-control" type="date" name="birthdate" required>
+<!--                        <input id="birthdate" class="form-control" type="date" name="birthdate" required>-->
+                        <input type="text" class="form-control" id="birthdate" required>
                     </div>
                 </div>
 
@@ -131,5 +132,6 @@
 
         </div>
     </div>
+
 
 <?php require('partials/footer.php'); ?>
