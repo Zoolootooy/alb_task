@@ -1,22 +1,18 @@
 <?php require('partials/header.php');?>
 
 
-    <div id="map"></div>
-    <div class="row">
-        <div class="col-8 offset-2" >
-            <div id="info"></div>
-        </div>
-    </div>
+    <div id="map" class="mb-5"></div>
 
     <div class="row">
         <div class="col-12">
-            <div class="row">
-                <div class="col-8 offset-2">
-                    <h4 class="text-center mb-5 mt-3">To participate in the conference, please fill out the form</h4>
-                </div>
-            </div>
 
             <form id="first" name="first" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <h4 class="text-center mb-5 mt-3">To participate in the conference, please fill out the form</h4>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-8 offset-2 form-group ">
                         <label for="firstname">First name</label>
@@ -84,6 +80,12 @@
 
             <form id="second" name="second" method="post" enctype="multipart/form-data">
                 <div class="row">
+                    <div class="col-8 offset-2">
+                        <h4 class="text-center mb-5">Tell us about you.</h4>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="company">Company</label>
                         <input id="company" class="form-control" type="text" name="company" placeholder="Company" value="">
@@ -107,7 +109,7 @@
                 <div class="row">
                     <div class="col-2 offset-2 form-group">
                         <label for="exampleFormControlFile1">Photo</label>
-                        <input type="file" class="form-control" name="photo" />
+                        <input type="file" class="" name="photo" />
                     </div>
                 </div>
 
@@ -123,8 +125,8 @@
                     <div id="icons">
                         <div class="row mb-5">
                             <div class="col-12">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-facebook mr-3"></a>
+                                <a href="#" class="fa fa-twitter ml-3"></a>
                             </div>
                         </div>
 
