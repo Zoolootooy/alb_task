@@ -134,4 +134,9 @@
     </div>
 
 
+
+    <script>
+
+    </script>
+
 <?php require('partials/footer.php'); ?>

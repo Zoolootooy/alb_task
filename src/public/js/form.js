@@ -1,6 +1,4 @@
-$(function(){
-    $("#birthdate").datepicker();
-});
+
 
 function funcBeforeFirst(){
 }
@@ -111,7 +109,9 @@ $(function(){
 
 
 $(document).ready (function () {
-
+    $(function(){
+        $("#birthdate").datepicker();
+    });
     $("#second").hide();
     $("#icons").hide();
 });
