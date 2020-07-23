@@ -1,4 +1,6 @@
-<?php require('partials/header.php');?>
+<?php require('partials/header.php');
+
+?>
 
 
     <div id="map"></div>
@@ -16,11 +18,11 @@
                 </div>
             </div>
 
-            <form id="first" action="" method="post" enctype="multipart/form-data">
+            <form id="first" name="first" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-8 offset-2 form-group">
+                    <div class="col-8 offset-2 form-group ">
                         <label for="firstname">First name</label>
-                        <input id="firstname" class="form-control" type="text" name="title" placeholder="First name"
+                        <input id="firstname" class="form-control " type="text" name="firstname" placeholder="First name"
                                value=""  required>
                     </div>
                 </div>
@@ -28,7 +30,7 @@
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="lastname">Last name</label>
-                        <input id="lastname" class="form-control" type="text" name="title" placeholder="Lastname"
+                        <input id="lastname" class="form-control" type="text" name="lastname" placeholder="Lastname"
                                value=""  required>
                     </div>
                 </div>
@@ -36,21 +38,21 @@
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="lastname">Birth date</label>
-                        <input id="birthdate" class="form-control" type="date" name="end_date" required>
+                        <input id="birthdate" class="form-control" type="date" name="birthdate" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="rep_subj">Report subject</label>
-                        <input id="rep_subj" class="form-control" type="text" name="title" placeholder="Report subject" required>
+                        <input id="rep_subj" class="form-control" type="text" name="rep_subj" placeholder="Report subject" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="country_id">Choose county</label>
-                        <select class="form-control" name="country_id" required>
+                        <select class="form-control" id="country_id" name="country_id" required>
                             <option ></option>
                             <?php foreach($countries as $country):?>
                                 <option value = '<?= $country['id'];?>'><?= $country['name'];?> </option>
@@ -72,9 +74,16 @@
                         <input id="formEmail" class="form-control" type="email" name="email" placeholder="Email" value=""  required>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-2 offset-8 text-right">
+                        <input id="btnNextFirst"  class="btn btn-primary btn-lg" value="Next" type="submit">
+                    </div>
+                </div>
             </form>
 
-            <form id="second" action="" method="post" enctype="multipart/form-data">
+
+            <form id="second" name="second" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="company">Company</label>
@@ -99,7 +108,13 @@
                 <div class="row">
                     <div class="col-2 offset-2 form-group">
                         <label for="exampleFormControlFile1">Photo</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input type="file" class="form-control" name="photo" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2 offset-8 text-right">
+                        <button id="btnNextSecond" form="second" class="btn btn-primary btn-lg" value="Next" type="submit">Next</button>
                     </div>
                 </div>
             </form>
@@ -107,23 +122,13 @@
             <div class="row">
                 <div class="col-8 offset-2 text-center">
                     <div id="icons">
-                        <a href="<?= $share_config['facebook'];?>" class="fa fa-facebook"></a>
-                        <a href="<?= $share_config['twitter'];?>" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
                     </div>
                 </div>
             </div>
 
 
-        </div>
-    </div>
-
-
-
-
-
-    <div class="row">
-        <div class="col-2 offset-8 text-right">
-            <button id="btnNextFirst" class="btn btn-primary btn-lg" type="submit">Next</button>
         </div>
     </div>
 

@@ -14,22 +14,84 @@ function funcBeforeSecond(){
 }
 
 function funcSuccessSecond(data){
-    $("#second").hide(500);
-    $("#icons").show(500);
+    // if (data == "true"){
+        $("#second").hide(500);
+        $("#icons").show(500);
+    // } else {
+    //     alert("!");
+    // }
 }
+$(function(){
+    $.validator.setDefaults({
+        highlight: function(element){
+            $(element)
+              .closest('.form-control')
+              .addClass('is-invalid');
+        },
+        unhighlight: function(element){
+            $(element)
+              .closest('.form-control')
+              .removeClass('is-invalid');
+        }
+    });
 
-$(document).ready (function () {
-    $("#btnNextFirst").bind("click", function(){
-        if (!$("#first").is(":hidden")){
+    $("#first").validate({
+        rules: {
+            firstname: {
+                required: true
+            },
+            lastname: "required",
+            birthdate: "required",
+            rep_subj: "required",
+            country_id: "required",
+            phone: "required",
+            email: {
+                required: true,
+                email: true,
+                remote: {
+                    url: '/checkEmail',
+                    type: 'post'
+                }
+            }
+        },
+        messages: {
+            email: {
+                email: "Please enter a <em>valid</em> email address",
+                remote: "This email is already registered."
+            }
+        },
+        submitHandler: function () {
             $.ajax ({
-                url:"/checkEmail",
+                url:"/checkData",
                 type: "POST",
-                data: ({email: $("#formEmail").val()}),
+                data: ({firstname: $("firstname").val(),
+                    lastname: $("lastname").val(),
+                    birthdate: $("birthdate").val(),
+                    rep_subj: $("rep_subj").val(),
+                    country_id: $("country_id").val(),
+                    phone: $("phone").val(),
+                    email: $("formEmail").val()
+                }),
                 datatype: "html",
                 beforeSend: funcBeforeFirst,
                 success: funcSuccessFirst
             });
-        } else if (!$("#second").is(":hidden")) {
+
+        }
+    });
+
+    $("#second").validate({
+        rules: {
+            photo: {
+                extension: "png|jpe?g|gif"
+            }
+        },
+        messages: {
+            photo: {
+                extension: "Only .png, .jpg, .jpeg, .gif files allowed."
+            }
+        },
+        submitHandler: function () {
             $.ajax ({
                 url:"/showIcons",
                 type: "POST",
@@ -39,10 +101,12 @@ $(document).ready (function () {
                 success: funcSuccessSecond
             });
         }
-
-
     });
 
+});
+
+$(document).ready (function () {
+    // $("#first").hide();
     $("#second").hide();
     $("#icons").hide();
 });

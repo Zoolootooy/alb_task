@@ -1,4 +1,4 @@
-<script src="../../public/js/map.show.js"></script>
+<script src="public/js/map.show.js"></script>
 <?php
     $mapScriptSrc = "https://maps.googleapis.com/maps/api/js?key=".$map_config['map_api']."&callback=initMap";
 ?>
