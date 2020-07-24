@@ -24,6 +24,7 @@ class ControllerMain extends Controller
         $model = new ModelMain();
         $data = $_POST;
         $model->checkData($data);
+        setcookie("my", "It's value", time()+60);
         echo "true";
     }
 

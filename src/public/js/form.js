@@ -1,6 +1,16 @@
+function onFirstForm (){
+    $("#second").hide();
+    $("#icons").hide();
+}
+
+function onSecondForm () {
+    $("#first").hide();
+    $("#icons").hide();
+}
 
 
-function funcBeforeFirst(){
+
+function funcBeforeFirst (){
 }
 
 function funcSuccessFirst(data){
@@ -107,12 +117,26 @@ $(function(){
 
 });
 
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 
 $(document).ready (function () {
     $(function(){
         $("#birthdate").datepicker();
     });
-    $("#first").hide();
-    $("#second").hide();
+
+    if (getCookie("my") == undefined) {
+        onFirstForm();
+    } else {
+        onSecondForm();
+    }
+
+    // $("#first").hide();
+    // $("#second").hide();
     // $("#icons").hide();
 });
