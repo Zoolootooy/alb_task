@@ -3,7 +3,6 @@
 namespace application\models;
 
 use application\core\Model;
-use PDOStatement;
 
 class ModelMain extends Model
 {
@@ -35,17 +34,27 @@ class ModelMain extends Model
 
     public function saveData($data)
     {
-        if (checkData($data) == "true") {
+        $executeQuery = $this->conn->query("
+            INSERT INTO person (firstname, lastname, birthdate, rep_subject, country_id, phone, email)
+            VALUES (?,?,?,?,?,?,?)",
+            [
+                $data['firstname'],
+                $data['lastname'],
+                $data['birthdate'],
+                $data['rep_subj'],
+                $data['country_id'],
+                $data['phone'],
+                $data['email']
+            ]
+        );
 
+        if ($executeQuery) {
+            return $this->conn->lastInsertId();
         } else {
-
+            return false;
         }
     }
 
-    private function checkData($data)
-    {
-
-    }
 
     public function checkEmail($email)
     {

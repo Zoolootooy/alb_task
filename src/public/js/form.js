@@ -17,7 +17,7 @@ function funcSuccessFirst (data) {
     $('#second').show(500)
   }
   else {
-    alert('This email is alreade registred!')
+    alert('Some error with saving your data. Please check the entering data and try again.')
   }
 }
 
@@ -69,13 +69,13 @@ $(function () {
         url: '/saveData',
         type: 'POST',
         data: ({
-          firstname: $('firstname').val(),
-          lastname: $('lastname').val(),
-          birthdate: $('birthdate').val(),
-          rep_subj: $('rep_subj').val(),
-          country_id: $('country_id').val(),
-          phone: $('phone').val(),
-          email: $('email').val(),
+          firstname: $('#firstname').val(),
+          lastname: $('#lastname').val(),
+          birthdate: $('#birthdate').val(),
+          rep_subj: $('#rep_subj').val(),
+          country_id: $('#country_id').val(),
+          phone: $('#phone').val(),
+          email: $('#email').val(),
         }),
         datatype: 'html',
         beforeSend: funcBeforeFirst,
