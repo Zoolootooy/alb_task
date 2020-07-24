@@ -16,32 +16,35 @@ class ControllerMain extends Controller
         $share_config = include('application/config/share_config.php');
         $modelCountry = new ModelCountry();
         $countries = $modelCountry->getCountries();
-        $this->view->generate('form.php', ['countries' =>  $countries, 'map_config' => $map_config,
-            'share_config' => $share_config]);
+        $this->view->generate('form.php', [
+            'countries' => $countries,
+            'map_config' => $map_config,
+            'share_config' => $share_config
+        ]);
     }
 
-    public function checkData(){
+    public function saveData()
+    {
         $model = new ModelMain();
         $data = $_POST;
-        $model->checkData($data);
-        setcookie("my", "It's value", time()+60);
+        $model->saveData($data);
+        setcookie("my", "It's value", time() + 60);
         echo "true";
     }
 
-    public function checkEmail(){
+    public function checkEmail()
+    {
         $this->model = new ModelMain();
-        if ($this->model->checkEmail($_POST['email'])){
+        if ($this->model->checkEmail($_POST['email'])) {
             echo(json_encode(false));
         } else {
             echo(json_encode(true));
         }
     }
 
-    public function addPerson(){
 
-    }
-
-    public function showIcons(){
+    public function showIcons()
+    {
 
     }
 

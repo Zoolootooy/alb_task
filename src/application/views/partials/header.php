@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Conference</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!---->
+    <!---->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <script src="../../public/js/map.show.js"></script>
     <script src="../../public/js/form.js"></script>
@@ -28,38 +29,38 @@
         prevText: 'Предыдущий',
         nextText: 'Следующий',
         currentText: 'Сегодня',
-        monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
-        monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
-        dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
-        dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
-        dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+        dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+        dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
         weekHeader: 'Не',
         dateFormat: 'dd.mm.yy',
         firstDay: 1,
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: ''
-      };
-      $.datepicker.setDefaults($.datepicker.regional['ru']);
+      }
+      $.datepicker.setDefaults($.datepicker.regional['ru'])
     </script>
 
 </head>
 <body>
 <header>
-<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--        <a class="navbar-brand"  href="/">Conference</a>-->
-<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--            <ul class="navbar-nav mr-auto">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="">New</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </nav>-->
+    <!--    <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <!--        <a class="navbar-brand"  href="/">Conference</a>-->
+    <!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+    <!--            <span class="navbar-toggler-icon"></span>-->
+    <!--        </button>-->
+    <!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+    <!--            <ul class="navbar-nav mr-auto">-->
+    <!--                <li class="nav-item">-->
+    <!--                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>-->
+    <!--                </li>-->
+    <!--                <li class="nav-item">-->
+    <!--                    <a class="nav-link" href="">New</a>-->
+    <!--                </li>-->
+    <!--            </ul>-->
+    <!--        </div>-->
+    <!--    </nav>-->
 </header>
