@@ -42,6 +42,7 @@
       };
       $.datepicker.setDefaults($.datepicker.regional['ru']);
     </script>
+
 </head>
 <body>
 <header>
@@ -62,6 +63,3 @@
 <!--        </div>-->
 <!--    </nav>-->
 </header>
-<?php
-
-?>
