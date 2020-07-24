@@ -1,11 +1,10 @@
 function onFirstForm () {
   $('#second').hide()
-  $('#icons').hide()
+
 }
 
 function onSecondForm () {
   $('#first').hide()
-  $('#icons').hide()
 }
 
 function funcBeforeFirst () {
@@ -17,7 +16,8 @@ function funcSuccessFirst (data) {
     $('#second').show(500)
   }
   else {
-    alert('Some error with saving your data. Please check the entering data and try again.')
+    alert(
+      'Some error with saving your data. Please check the entering data and try again.')
   }
 }
 
@@ -25,9 +25,19 @@ function funcBeforeSecond () {
 }
 
 function funcSuccessSecond (data) {
-  $('#second').hide(500)
-  $('#icons').show(500)
+  if (data == 'true') {
+    $('#second').hide(500)
+    $('#icons').show(500)
+  }
+  else {
+    alert(
+      'Some error with saving your data. Please check the entering data and try again.')
+  }
 }
+
+$.validator.addMethod('filesize', function (value, element, param) {
+  return this.optional(element) || (element.files[0].size <= param)
+}, 'File size must be less than {0}')
 
 $(function () {
   $.validator.setDefaults({
@@ -89,18 +99,30 @@ $(function () {
     rules: {
       photo: {
         extension: 'png|jpe?g|gif',
+        filesize: 5242880,
       },
     },
     messages: {
       photo: {
         extension: 'Only .png, .jpg, .jpeg, .gif files allowed.',
+        filesize: 'File must be less then 5 Mb.',
       },
     },
     submitHandler: function () {
+
+
+
+
       $.ajax({
         url: '/showIcons',
         type: 'POST',
-        data: ({}),
+        data: ({
+          company: $('#company').val(),
+          position: $('#position').val(),
+          about: $('#about').val(),
+          photo: $('#photo').val()
+        }),
+        enctype: 'multipart/form-data',
         datatype: 'html',
         beforeSend: funcBeforeSecond,
         success: funcSuccessSecond,
@@ -109,6 +131,8 @@ $(function () {
   })
 
 })
+
+
 
 function getCookie (name) {
   let matches = document.cookie.match(new RegExp(
@@ -123,14 +147,13 @@ $(document).ready(function () {
     $('#birthdate').datepicker()
   })
 
-  if (getCookie('my') == undefined) {
+  if (getCookie('email') == undefined) {
     onFirstForm()
   }
   else {
     onSecondForm()
   }
 
-  // $("#first").hide();
-  // $("#second").hide();
-  // $("#icons").hide();
+  $('#icons').hide()
 })
+

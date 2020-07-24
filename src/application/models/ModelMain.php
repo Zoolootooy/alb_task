@@ -10,9 +10,10 @@ class ModelMain extends Model
     public function uploadImage($image)
     {
         $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-        if (($extension == "jpg") || ($extension == "jpeg") || ($extension == "gif") || ($extension == "png")) {
+        if (($extension == "jpg") || ($extension == "jpeg") || ($extension == "gif") || ($extension == "png")){
             $filename = uniqid() . "." . $extension;
-        } else {
+        }
+        else {
             $filename = "";
             return $filename;
         }
@@ -21,7 +22,8 @@ class ModelMain extends Model
         $res = move_uploaded_file($image['tmp_name'], "public/images/" . $filename);
         if ($res) {
             return $filename;
-        } else {
+        }
+        else {
             return "";
         }
     }
@@ -60,6 +62,30 @@ class ModelMain extends Model
     {
         $result = $this->conn->query("SELECT COUNT(id) AS total FROM person WHERE email=?", [$email])[0];
         return $result['total'] > 0 ? true : false;
+    }
+
+    public function updateData($data, $filename, $id, $email){
+        $executeQuery = $this->conn->query("
+            UPDATE person SET
+            company = ?,
+            position = ?, 
+            about = ?, 
+            photo = ?
+            WHERE id = ?",
+            [
+                $data['company'],
+                $data['position'],
+                $data['about'],
+                $filename,
+                $id
+            ]
+        );
+
+        if ($executeQuery) {
+            return $this->conn->lastInsertId();
+        } else {
+            return false;
+        }
     }
 
 

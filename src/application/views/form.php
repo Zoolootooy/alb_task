@@ -117,13 +117,13 @@
                 <div class="row">
                     <div class="col-2 offset-2 form-group">
                         <label for="exampleFormControlFile1">Photo</label>
-                        <input type="file" class="" name="photo"/>
+                        <input id="photo" type="file" class="" name="photo"/>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-2 offset-8 text-right">
-                        <button id="btnNextSecond" form="second" class="btn btn-primary btn-lg" value="Next"
+                        <button id="btnNextSecond"  class="btn btn-primary btn-lg" value="Next"
                                 type="submit">Next
                         </button>
                     </div>
@@ -135,8 +135,12 @@
                     <div id="icons">
                         <div class="row mb-5">
                             <div class="col-12">
-                                <a href="#" class="fa fa-facebook mr-3"></a>
-                                <a href="#" class="fa fa-twitter ml-3"></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $share_config['link']?>"
+                                   onclick="window.open(this.href,",'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=600,width=600');return false;"
+                                   class="fa fa-facebook mr-3"></a>
+                                <a href="https://twitter.com/share?url=<?=$share_config['link'] ?>&text=<?=$share_config['text'] ?>"
+                                   onclick="window.open(this.href,",'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=600,width=600');return false;"
+                                   class="fa fa-twitter ml-3"></a>
                             </div>
                         </div>
 
