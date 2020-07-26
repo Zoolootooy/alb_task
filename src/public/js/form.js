@@ -87,6 +87,7 @@ $(function () {
           phone: $('#phone').val(),
           email: $('#email').val(),
         }),
+        enctype: 'multipart/form-data',
         datatype: 'html',
         beforeSend: funcBeforeFirst,
         success: funcSuccessFirst,
@@ -108,20 +109,21 @@ $(function () {
         filesize: 'File must be less then 5 Mb.',
       },
     },
-    submitHandler: function () {
+    submitHandler: function (form) {
 
-
-
-
+      ;
       $.ajax({
         url: '/showIcons',
         type: 'POST',
-        data: ({
-          company: $('#company').val(),
-          position: $('#position').val(),
-          about: $('#about').val(),
-          photo: $('#photo').val()
-        }),
+        // data: ({
+        //   company: $('#company').val(),
+        //   position: $('#position').val(),
+        //   about: $('#about').val(),
+        //   photo: $('#photo').val()
+        // }),
+        data: new FormData(form),
+        processData: false,
+        contentType: false,
         enctype: 'multipart/form-data',
         datatype: 'html',
         beforeSend: funcBeforeSecond,
@@ -143,9 +145,12 @@ function getCookie (name) {
 }
 
 $(document).ready(function () {
-  $(function () {
-    $('#birthdate').datepicker()
-  })
+
+    $('#birthdate').datepicker();
+    $("#birthdate").datepicker({
+      minDate: 0
+    });
+
 
   if (getCookie('email') == undefined) {
     onFirstForm()

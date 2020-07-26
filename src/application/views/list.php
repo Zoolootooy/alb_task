@@ -6,7 +6,7 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
-                    <tr class="thead-dark">
+                    <tr class="thead-dark text-center">
                         <th>№</th>
                         <th>Photo</th>
                         <th>Name</th>
@@ -17,12 +17,22 @@
                     <tbody>
                     <?php $i = 0;
                     foreach ($members as $member) : ?>
-                        <tr>
-                            <td><?= ++$i ?></td>
-                            <td><?= $member['photo'] ?></td>
-                            <td><?= $member['firstname'] . " " . $member['lastname'] ?></td>
-                            <td><?= $member['rep_subject'] ?></td>
-                            <td><?= $member['email'] ?></td>
+                        <tr class="text-center">
+                            <td class="align-middle"><?= ++$i ?></td>
+                            <?php if ($member['photo'] != null) : ?>
+                                <td class="align-middle">
+                                    <img class="img rounded-circle profile-img" src="public/images/<?=$member['photo']; ?>">
+                                </td>
+                            <?php else : ?>
+                                <td class="align-middle">
+                                    <img class="img rounded-circle profile-img" src="public/images/default.jpg">
+                                </td>
+                            <?php endif; ?>
+
+
+                            <td class="align-middle"><?= $member['firstname'] . " " . $member['lastname'] ?></td>
+                            <td class="align-middle"><?= $member['rep_subject'] ?></td>
+                            <td class="align-middle"><?= $member['email'] ?></td>
                         </tr>
 
                     <?php endforeach; ?>

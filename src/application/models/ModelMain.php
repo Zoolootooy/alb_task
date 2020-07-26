@@ -64,20 +64,40 @@ class ModelMain extends Model
         return $result['total'] > 0 ? true : false;
     }
 
-    public function updateData($data, $filename, $id, $email){
+    public function updatePhoto($filename, $id){
+        $executeQuery = $this->conn->query("
+            UPDATE person SET
+            photo = ?
+            WHERE 
+            id = ?",
+            [
+                $filename,
+                $id
+            ]
+        );
+
+        if ($executeQuery) {
+            return $this->conn->lastInsertId();
+        } else {
+            return false;
+        }
+    }
+
+    public function updateData($data, $id, $email){
         $executeQuery = $this->conn->query("
             UPDATE person SET
             company = ?,
             position = ?, 
-            about = ?, 
-            photo = ?
-            WHERE id = ?",
+            about = ?
+            WHERE 
+            id = ? AND
+            email = ?",
             [
                 $data['company'],
                 $data['position'],
                 $data['about'],
-                $filename,
-                $id
+                $id,
+                $email
             ]
         );
 

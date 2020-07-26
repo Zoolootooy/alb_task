@@ -34,8 +34,8 @@
                 <div class="row">
                     <div class="col-8 offset-2 form-group">
                         <label for="lastname">Birth date</label>
-                        <!--                        <input id="birthdate" class="form-control" type="date" name="birthdate" required>-->
-                        <input type="text" class="form-control" id="birthdate" required>
+<!--                                                <input id="birthdate" class="form-control" type="date" name="birthdate" required>-->
+                        <input type="text" class="form-control" id="birthdate" required readonly="readonly">
                     </div>
                 </div>
 
@@ -136,17 +136,18 @@
                         <div class="row mb-5">
                             <div class="col-12">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $share_config['link']?>"
-                                   onclick="window.open(this.href,",'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=600,width=600');return false;"
+                                   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=500,width=800');return false;"
                                    class="fa fa-facebook mr-3"></a>
                                 <a href="https://twitter.com/share?url=<?=$share_config['link'] ?>&text=<?=$share_config['text'] ?>"
-                                   onclick="window.open(this.href,",'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=600,width=600');return false;"
+                                   onclick="window.open(this.href, '', 'menubar=no,toolbar=no,resisable=yes,scrollbars=yes,height=500,width=800');return false;"
                                    class="fa fa-twitter ml-3"></a>
+
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-4 offset-4">
-                                <form action="/members_list">
+                                <form action="/members_list"  method="post">
                                     <button class="btn btn-primary btn-lg btn-block">All members</button>
                                 </form>
 

@@ -55,20 +55,29 @@ class ControllerMain extends Controller
 
     public function showIcons()
     {
-        echo "true";
-//        $model = new ModelMain();
-//        $data = $_POST;
-//        $filename = $_POST['photo'];
-//
-//        $src_file = $request->file('file');
-//        Log::info($src_file);
-////        $filename = $model->uploadImage($_POST['photo']);
-//        $result = $model->updateData($data, $filename, $_COOKIE['idUser'], $_COOKIE['email']);
-//        if ($result <= 0) {
-//            echo "true";
-//        } else {
-//            echo "false";
-//        }
+        if (isset($_FILES['photo']['name']) && ! empty($_FILES['photo']['name'])) {
+            $filename = $_FILES['photo']['name'];
+            $target = 'public/images/'.$filename;
+            move_uploaded_file($_FILES['photo']['tmp_name'], $target);
+        } else {
+            $filename = NULL;
+        }
+
+
+        $model = new ModelMain();
+        $data = $_POST;
+
+        $id = $_COOKIE['idUser'];
+        if ($filename != NULL) {
+            $model->updatePhoto($filename, $id);
+        }
+
+        $result = $model->updateData($data, $id, $_COOKIE['email']);
+        if ($result <= 0) {
+            echo "true";
+        } else {
+            echo "false";
+        }
     }
 
 
