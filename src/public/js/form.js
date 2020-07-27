@@ -58,7 +58,10 @@ $(function () {
       birthdate: 'required',
       rep_subj: 'required',
       country_id: 'required',
-      phone: 'required',
+      phone: {
+        required: true,
+        minlength: 10,
+      },
       email: {
         required: true,
         email: true,
@@ -111,7 +114,6 @@ $(function () {
     },
     submitHandler: function (form) {
 
-
       $.ajax({
         url: '/showIcons',
         type: 'POST',
@@ -134,8 +136,6 @@ $(function () {
 
 })
 
-
-
 function getCookie (name) {
   let matches = document.cookie.match(new RegExp(
     '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
@@ -146,16 +146,12 @@ function getCookie (name) {
 
 $(document).ready(function () {
 
-    $('#birthdate').datepicker();
-    $("#birthdate").datepicker({
-      minDate: 0
-    });
+  $('#birthdate').datepicker()
+  $('#birthdate').datepicker({
+    minDate: 0,
+  })
 
-
-
-
-  // $("#phone").mask("+9?9 (999) 999-9999");
-
+  $("#phone").mask("+1 (999) 999-9999");
 
   if (getCookie('email') == undefined) {
     onFirstForm()
@@ -166,4 +162,5 @@ $(document).ready(function () {
 
   $('#icons').hide()
 })
+
 

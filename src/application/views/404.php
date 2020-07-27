@@ -1,4 +1,4 @@
-<?php require('partials/header.php');?>
+<?php require('partials/header.php'); ?>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css"/>
     <link rel="stylesheet" href="../public/css/404style.css" type="text/css">
 

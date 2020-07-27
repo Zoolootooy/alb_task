@@ -69,8 +69,9 @@ class ControllerMain extends Controller
         $data = $_POST;
 
         $id = $_COOKIE['idUser'];
+        $email = $_COOKIE['email'];
         if ($filename != NULL) {
-            $model->updatePhoto($filename, $id);
+            $model->updatePhoto($filename, $id, $email);
         }
 
         $result = $model->updateData($data, $id, $_COOKIE['email']);

@@ -8,7 +8,6 @@ class ModelMain extends Model
 {
 
 
-
     public function getAllMembers()
     {
         $members = $this->conn->query("SELECT * FROM person ORDER BY id");
@@ -45,15 +44,18 @@ class ModelMain extends Model
         return $result['total'] > 0 ? true : false;
     }
 
-    public function updatePhoto($filename, $id){
+    public function updatePhoto($filename, $id, $email)
+    {
         $executeQuery = $this->conn->query("
             UPDATE person SET
             photo = ?
             WHERE 
-            id = ?",
+            id = ? AND
+            email = ?",
             [
                 $filename,
-                $id
+                $id,
+                $email
             ]
         );
 
@@ -64,15 +66,16 @@ class ModelMain extends Model
         }
     }
 
-    public function updateData($data, $id, $email){
-        if (empty($data['company'])){
-            $data['company'] = NULL;
+    public function updateData($data, $id, $email)
+    {
+        if (empty($data['company'])) {
+            $data['company'] = null;
         }
-        if (empty($data['position'])){
-            $data['position'] = NULL;
+        if (empty($data['position'])) {
+            $data['position'] = null;
         }
-        if (empty($data['about'])){
-            $data['about'] = NULL;
+        if (empty($data['about'])) {
+            $data['about'] = null;
         }
 
 

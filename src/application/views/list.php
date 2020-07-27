@@ -2,9 +2,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered shadow-sm">
                     <thead>
                     <tr class="thead-dark text-center">
                         <th>№</th>
@@ -32,7 +32,7 @@
 
                             <td class="align-middle"><?= $member['firstname'] . " " . $member['lastname'] ?></td>
                             <td class="align-middle"><?= $member['rep_subject'] ?></td>
-                            <td class="align-middle"><?= $member['email'] ?></td>
+                            <td class="align-middle"><a href="<?= 'mailto:' . $member['email']?>"> <?=$member['email']?></a></td>
                         </tr>
 
                     <?php endforeach; ?>
