@@ -152,6 +152,11 @@ $(document).ready(function () {
     });
 
 
+
+
+  // $("#phone").mask("+9?9 (999) 999-9999");
+
+
   if (getCookie('email') == undefined) {
     onFirstForm()
   }
