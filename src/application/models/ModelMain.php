@@ -7,26 +7,7 @@ use application\core\Model;
 class ModelMain extends Model
 {
 
-    public function uploadImage($image)
-    {
-        $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-        if (($extension == "jpg") || ($extension == "jpeg") || ($extension == "gif") || ($extension == "png")){
-            $filename = uniqid() . "." . $extension;
-        }
-        else {
-            $filename = "";
-            return $filename;
-        }
 
-
-        $res = move_uploaded_file($image['tmp_name'], "public/images/" . $filename);
-        if ($res) {
-            return $filename;
-        }
-        else {
-            return "";
-        }
-    }
 
     public function getAllMembers()
     {
@@ -84,6 +65,17 @@ class ModelMain extends Model
     }
 
     public function updateData($data, $id, $email){
+        if (empty($data['company'])){
+            $data['company'] = NULL;
+        }
+        if (empty($data['position'])){
+            $data['position'] = NULL;
+        }
+        if (empty($data['about'])){
+            $data['about'] = NULL;
+        }
+
+
         $executeQuery = $this->conn->query("
             UPDATE person SET
             company = ?,

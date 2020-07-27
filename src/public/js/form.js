@@ -31,7 +31,7 @@ function funcSuccessSecond (data) {
   }
   else {
     alert(
-      'Some error with saving your data. Please check the entering data and try again.')
+      'Some error with updating your data. Please check the entering data and try again.')
   }
 }
 
@@ -111,7 +111,7 @@ $(function () {
     },
     submitHandler: function (form) {
 
-      ;
+
       $.ajax({
         url: '/showIcons',
         type: 'POST',

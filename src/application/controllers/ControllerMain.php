@@ -56,7 +56,8 @@ class ControllerMain extends Controller
     public function showIcons()
     {
         if (isset($_FILES['photo']['name']) && ! empty($_FILES['photo']['name'])) {
-            $filename = $_FILES['photo']['name'];
+            $extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+            $filename = uniqid() . "." . $extension;;
             $target = 'public/images/'.$filename;
             move_uploaded_file($_FILES['photo']['tmp_name'], $target);
         } else {
