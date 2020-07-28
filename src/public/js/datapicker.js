@@ -3,7 +3,7 @@
     /* Локализация datepicker */
     $.datepicker.regional['en'] = {
         weekHeader: 'Не',
-        dateFormat: 'mm-dd-yy',
+        dateFormat: 'yy-mm-dd',
         firstDay: 0,
         isRTL: false,
         showMonthAfterYear: false,
