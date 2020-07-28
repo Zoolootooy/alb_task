@@ -1,6 +1,4 @@
 /.idea/
 /src/vendor/
 /src/application/config/database_config.php
-/src/application/config/map_config.php
-/src/application/config/share_config.php
 /src/public/images/
