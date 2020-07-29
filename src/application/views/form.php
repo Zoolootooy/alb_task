@@ -36,6 +36,7 @@
                         <div class="col-12 form-group">
                             <label for="lastname">Birth date</label>
                             <input type="text" class="form-control shadow-sm" id="birthdate" required readonly="readonly">
+
                         </div>
                     </div>
 
@@ -66,6 +67,8 @@
                                    value="" required>
                             <input type="checkbox" hidden id="phone_mask" checked>
                             <label id="descr" for="phone_mask" hidden></label>
+
+
                         </div>
                     </div>
 

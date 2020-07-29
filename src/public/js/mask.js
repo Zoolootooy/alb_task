@@ -1,4 +1,4 @@
-var maskList = $.masksSort($.masksLoad("https://cdn.rawgit.com/andr-04/inputmask-multi/master/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+var maskList = $.masksSort($.masksLoad("public/js/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
 var maskOpts = {
   inputmask: {
     definitions: {
@@ -8,7 +8,11 @@ var maskOpts = {
       }
     },
     showMaskOnHover: false,
-    autoUnmask: true,
+
+    //autoUnmask
+    //true: value will be without mask;
+    //false: value will be with mask;
+    autoUnmask: false,
     clearMaskOnLostFocus: false
   },
   match: /[0-9]/,

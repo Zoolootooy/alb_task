@@ -39,6 +39,11 @@ $.validator.addMethod('filesize', function (value, element, param) {
   return this.optional(element) || (element.files[0].size <= param)
 }, 'File size must be less than {0}')
 
+$.validator.addMethod('regexp', function(value, element, params) {
+  var expression = new RegExp(params);
+  return this.optional(element) || expression.test(value);
+}, 'Enter full phone number');
+
 $(function () {
   $.validator.setDefaults({
     highlight: function (element) {
@@ -55,12 +60,18 @@ $(function () {
         required: true,
       },
       lastname: 'required',
-      birthdate: 'required',
-      rep_subj: 'required',
+      // birthdate: {
+      //   required: true,
+      //   dpDate: true
+      // },
+      rep_subj: {
+        required: true,
+        maxlength: 255
+      },
       country_id: 'required',
       phone: {
         required: true,
-        minlength: 10,
+        regexp: /\+[0-9,\-, ,(,)]+$/
       },
       email: {
         required: true,
@@ -146,12 +157,20 @@ function getCookie (name) {
 
 $(document).ready(function () {
 
-  $('#birthdate').datepicker()
+  $('#birthdate').datepicker();
   $('#birthdate').datepicker({
     minDate: 0,
   })
 
-  $("#phone").mask("+1 (999) 999-9999");
+  $("#birthdate").datepicker({
+    autoclose: true,
+  }).change(function() {
+    $(this).valid();  // triggers the validation test
+  });
+
+
+  // $("#phone").mask("+1 (999) 999-9999");
+
 
   if (getCookie('email') == undefined) {
     onFirstForm()

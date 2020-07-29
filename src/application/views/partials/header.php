@@ -12,11 +12,14 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js"
             type="text/javascript"></script>
 
 
     <script src="../../public/js/form.js"></script>
+    <script src="public/js/mask.js"></script>
+
     <link rel="stylesheet" href="../public/css/style.css" type="text/css">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
