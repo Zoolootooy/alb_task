@@ -1,4 +1,4 @@
-var maskList = $.masksSort($.masksLoad("public/js/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+var maskList = $.masksSort($.masksLoad("public/json/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
 var maskOpts = {
   inputmask: {
     definitions: {
