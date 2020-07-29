@@ -6,15 +6,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5">
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <h4 id="titleFirst" class="text-center mb-5 mt-3 ">To participate in the conference, please fill out the
+                            form</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 ">
+                        <h4 id="titleSecond" class="text-center mb-5">Tell us about you.</h4>
+                    </div>
+                </div>
 
                 <form id="first" name="first" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-8 offset-2">
-                            <h4 class="text-center mb-5 mt-3 ">To participate in the conference, please fill out the
-                                form</h4>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-12  form-group ">
                             <label for="firstname">First name</label>
@@ -91,11 +96,7 @@
 
 
                 <form id="second" name="second" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-12 ">
-                            <h4 class="text-center mb-5">Tell us about you.</h4>
-                        </div>
-                    </div>
+
 
                     <div class="row">
                         <div class="col-12  form-group">
@@ -116,7 +117,7 @@
                     <div class="row">
                         <div class="col-12  form-group">
                             <label for="about">About</label>
-                            <textarea id="about" class="form-control shadow-sm" name="about" maxlength="255" rows="6"
+                            <textarea id="about" class="form-control shadow-sm" name="about" maxlength="21845" rows="6"
                                       placeholder="About Me"></textarea>
                         </div>
                     </div>
@@ -131,7 +132,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <input id="photo" type="file" class="shadow-sm" name="photo"/>
+                                    <input id="photo" type="file" class="" name="photo"/>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +140,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-4 offset-md-8 col-lg-2 offset-lg-10 text-right">
-                            <button id="btnNextSecond" class="btn btn-primary btn-lg btn-block shadow-sm" value="Next"
+                            <button id="btnNextSecond" class="btn btn-primary btn-lg btn-block shadow-sm" value=""
                                     type="submit">Next
                             </button>
                         </div>
@@ -169,6 +170,9 @@
                                         <button class="btn btn-primary btn-lg btn-block shadow-sm">All members</button>
                                     </form>
 
+                                    <form action="/newForm" method="LINK">
+                                        <button class="btn btn-primary btn-lg btn-block shadow-sm mt-3">Fill form again</button>
+                                    </form>
                                 </div>
                             </div>
 

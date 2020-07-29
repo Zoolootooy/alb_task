@@ -1,10 +1,11 @@
 function onFirstForm () {
   $('#second').hide()
-
+  $('#titleSecond').hide()
 }
 
 function onSecondForm () {
   $('#first').hide()
+  $('#titleFirst').hide()
 }
 
 function funcBeforeFirst () {
@@ -58,17 +59,22 @@ $(function () {
     rules: {
       firstname: {
         required: true,
+        maxlength: 100
       },
-      lastname: 'required',
-      // birthdate: {
-      //   required: true,
-      //   dpDate: true
-      // },
+      lastname:{
+        required: true,
+        maxlength: 255
+      },
+      birthdate: {
+        required: true
+      },
       rep_subj: {
         required: true,
         maxlength: 255
       },
-      country_id: 'required',
+      country_id: {
+        required: true,
+      },
       phone: {
         required: true,
         regexp: /\+[0-9,\-, ,(,)]+$/
@@ -76,6 +82,7 @@ $(function () {
       email: {
         required: true,
         email: true,
+        maxlength: 70,
         remote: {
           url: '/checkEmail',
           type: 'post',
@@ -86,6 +93,15 @@ $(function () {
       email: {
         email: 'Please enter a <em>valid</em> email address',
         remote: 'This email is already registered.',
+      },
+      firstname: {
+        maxlength: 'Please enter no more than 100 characters.'
+      },
+      lastname: {
+        maxlength: 'Please enter no more than 255 characters.'
+      },
+      email: {
+        maxlength: 'Please enter no more than 70 characters.'
       },
     },
     submitHandler: function () {
@@ -116,11 +132,29 @@ $(function () {
         extension: 'png|jpe?g|gif',
         filesize: 5242880,
       },
+      company: {
+        maxlength: 70,
+      },
+      position: {
+        maxlength: 100,
+      },
+      about: {
+        maxlength: 21844
+      }
     },
     messages: {
       photo: {
         extension: 'Only .png, .jpg, .jpeg, .gif files allowed.',
         filesize: 'File must be less then 5 Mb.',
+      },
+      company: {
+        maxlength: 'Please enter no more than 70 characters.'
+      },
+      position: {
+        maxlength: 'Please enter no more than 100 characters.'
+      },
+      about: {
+        maxlength: 'Please enter no more than 21844 characters.'
       },
     },
     submitHandler: function (form) {
@@ -172,11 +206,11 @@ $(document).ready(function () {
   // $("#phone").mask("+1 (999) 999-9999");
 
 
-  if (getCookie('email') == undefined) {
-    onFirstForm()
+  if ((getCookie('email') !== undefined) && (getCookie('idUser') !== undefined)) {
+    onSecondForm()
   }
   else {
-    onSecondForm()
+    onFirstForm()
   }
 
   $('#icons').hide()
