@@ -9,7 +9,7 @@ CREATE TABLE `person` (
   `email` VARCHAR(70) NOT NULL UNIQUE,
   `company` VARCHAR(70) NULL,
   `position` VARCHAR(100) NULL,
-  `about` VARCHAR(45) NULL,
+  `about` TEXT NULL,
   `photo` VARCHAR(255) NULL,
   CONSTRAINT country_person_fk
   FOREIGN KEY (country_id)  REFERENCES country (id)
