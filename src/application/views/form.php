@@ -6,20 +6,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5">
-                <div class="row">
-                    <div class="col-8 offset-2">
-                        <h4 id="titleFirst" class="text-center mb-5 mt-3 ">To participate in the conference, please fill out the
-                            form</h4>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 ">
-                        <h4 id="titleSecond" class="text-center mb-5">Tell us about you.</h4>
-                    </div>
-                </div>
-
                 <form id="first" name="first" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <h4 class="text-center mb-5 mt-3 ">To participate in the conference, please fill out the
+                                form</h4>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-12  form-group ">
                             <label for="firstname">First name</label>
@@ -96,7 +90,11 @@
 
 
                 <form id="second" name="second" method="post" enctype="multipart/form-data">
-
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h4 class="text-center mb-5">Tell us about you.</h4>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-12  form-group">

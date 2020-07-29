@@ -1,11 +1,9 @@
 function onFirstForm () {
   $('#second').hide()
-  $('#titleSecond').hide()
 }
 
 function onSecondForm () {
   $('#first').hide()
-  $('#titleFirst').hide()
 }
 
 function funcBeforeFirst () {
