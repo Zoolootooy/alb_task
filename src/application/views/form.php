@@ -166,7 +166,7 @@
 
                             <div class="row">
                                 <div class="col-4 offset-4">
-                                    <form action="/members_list" method="LINK">
+                                    <form action="/members_list" target="_blank" method="LINK">
                                         <button class="btn btn-primary btn-lg btn-block shadow-sm">All members</button>
                                     </form>
 
