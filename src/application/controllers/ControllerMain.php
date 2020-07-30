@@ -24,15 +24,29 @@ class ControllerMain extends Controller
         ]);
     }
 
+    public function getMembersNumber()
+    {
+        $modelMain = new ModelMain();
+        echo $modelMain->getMembersNumber()[0]['number'];
+    }
+
+
     public function saveData()
     {
 
         $model = new ModelMain();
-        $data = $_POST;
-        $id = $model->saveData($data);
+        $firstname = Request::post('firstname');
+        $lastname = Request::post('lastname');
+        $birthdate = Request::post('birthdate');
+        $rep_subj = Request::post('rep_subj');
+        $country_id = Request::post('country_id');
+        $phone = Request::post('phone');
+        $email = Request::post('email');
+        $id = $model->saveData($firstname, $lastname, $birthdate, $rep_subj, $country_id, $phone, $email);
+
 
         if ($id != false) {
-            setcookie("email", $data['email']);
+            setcookie("email", $email);
             setcookie("idUser", $id);
             echo "true";
         } else {
@@ -45,7 +59,7 @@ class ControllerMain extends Controller
     public function checkEmail()
     {
         $this->model = new ModelMain();
-        if ($this->model->checkEmail($_POST['email'])) {
+        if ($this->model->checkEmail(Request::post('email'))) {
             echo(json_encode(false));
         } else {
             echo(json_encode(true));
@@ -55,22 +69,24 @@ class ControllerMain extends Controller
 
     public function showIcons()
     {
-        if (isset($_FILES['photo']['name']) && ! empty($_FILES['photo']['name'])) {
-            $extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+        $photo = Request::files('photo', 'name');
+        if (isset($photo) && !empty($photo)) {
+            $extension = pathinfo($photo, PATHINFO_EXTENSION);
             $filename = uniqid() . "." . $extension;;
-            $target = 'public/images/'.$filename;
-            move_uploaded_file($_FILES['photo']['tmp_name'], $target);
+            $target = 'public/images/' . $filename;
+            move_uploaded_file(Request::files('photo', 'tmp_name'), $target);
         } else {
-            $filename = NULL;
+            $filename = null;
         }
 
 
+
         $model = new ModelMain();
-        $data = $_POST;
+        $data = INPUT_POST;
 
         $id = $_COOKIE['idUser'];
         $email = $_COOKIE['email'];
-        if ($filename != NULL) {
+        if ($filename != null) {
             $model->updatePhoto($filename, $id, $email);
         }
 
@@ -82,7 +98,8 @@ class ControllerMain extends Controller
         }
     }
 
-    public function newForm(){
+    public function newForm()
+    {
         setcookie("email", "", time() - 3600);
         setcookie("idUser", "", time() - 3600);
         header("Location: /");

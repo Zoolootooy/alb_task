@@ -26,7 +26,8 @@
                     <div class="row">
                         <div class="col-12 form-group">
                             <label for="lastname">Last name</label>
-                            <input id="lastname" class="form-control shadow-sm" type="text" name="lastname" placeholder="Lastname"
+                            <input id="lastname" class="form-control shadow-sm" type="text" name="lastname"
+                                   placeholder="Lastname"
                                    value="" required>
                         </div>
                     </div>
@@ -34,7 +35,8 @@
                     <div class="row">
                         <div class="col-12 form-group">
                             <label for="lastname">Birth date</label>
-                            <input type="text" class="form-control shadow-sm" id="birthdate" required readonly="readonly">
+                            <input type="text" class="form-control shadow-sm" id="birthdate" required
+                                   readonly="readonly">
 
                         </div>
                     </div>
@@ -62,7 +64,8 @@
                     <div class="row">
                         <div class="col-12 form-group">
                             <label for="phone">Phone number</label>
-                            <input id="phone" class="form-control shadow-sm" type="text" name="phone" placeholder="Phone number"
+                            <input id="phone" class="form-control shadow-sm" type="text" name="phone"
+                                   placeholder="Phone number"
                                    value="" required>
                             <input type="checkbox" hidden id="phone_mask" checked>
                             <label id="descr" for="phone_mask" hidden></label>
@@ -74,7 +77,8 @@
                     <div class="row">
                         <div class="col-12 form-group">
                             <label for="email">Email</label>
-                            <input id="email" class="form-control shadow-sm" type="email" name="email" placeholder="Email"
+                            <input id="email" class="form-control shadow-sm" type="email" name="email"
+                                   placeholder="Email"
                                    value=""
                                    required>
                         </div>
@@ -99,7 +103,8 @@
                     <div class="row">
                         <div class="col-12  form-group">
                             <label for="company">Company</label>
-                            <input id="company" class="form-control shadow-sm" type="text" name="company" placeholder="Company"
+                            <input id="company" class="form-control shadow-sm" type="text" name="company"
+                                   placeholder="Company"
                                    value="">
                         </div>
                     </div>
@@ -107,7 +112,8 @@
                     <div class="row">
                         <div class="col-12  form-group">
                             <label for="position">Position</label>
-                            <input id="position" class="form-control shadow-sm" type="text" name="position" placeholder="Position"
+                            <input id="position" class="form-control shadow-sm" type="text" name="position"
+                                   placeholder="Position"
                                    value="">
                         </div>
                     </div>
@@ -165,11 +171,14 @@
                             <div class="row">
                                 <div class="col-4 offset-4">
                                     <form action="/members_list" target="_blank" method="LINK">
-                                        <button class="btn btn-primary btn-lg btn-block shadow-sm">All members</button>
+                                        <button class="btn btn-primary btn-lg btn-block shadow-sm" id="btnList">
+                                        </button>
                                     </form>
 
                                     <form action="/newForm" method="LINK">
-                                        <button class="btn btn-primary btn-lg btn-block shadow-sm mt-3">Fill form again</button>
+                                        <button class="btn btn-primary btn-lg btn-block shadow-sm mt-3">Fill form
+                                            again
+                                        </button>
                                     </form>
                                 </div>
                             </div>

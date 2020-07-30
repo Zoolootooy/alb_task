@@ -38,10 +38,10 @@ $.validator.addMethod('filesize', function (value, element, param) {
   return this.optional(element) || (element.files[0].size <= param)
 }, 'File size must be less than {0}')
 
-$.validator.addMethod('regexp', function(value, element, params) {
-  var expression = new RegExp(params);
-  return this.optional(element) || expression.test(value);
-}, 'Enter full phone number');
+$.validator.addMethod('regexp', function (value, element, params) {
+  var expression = new RegExp(params)
+  return this.optional(element) || expression.test(value)
+}, 'Enter full phone number')
 
 $(function () {
   $.validator.setDefaults({
@@ -57,25 +57,25 @@ $(function () {
     rules: {
       firstname: {
         required: true,
-        maxlength: 100
+        maxlength: 100,
       },
-      lastname:{
+      lastname: {
         required: true,
-        maxlength: 255
+        maxlength: 255,
       },
       birthdate: {
-        required: true
+        required: true,
       },
       rep_subj: {
         required: true,
-        maxlength: 255
+        maxlength: 255,
       },
       country_id: {
         required: true,
       },
       phone: {
         required: true,
-        regexp: /\+[0-9,\-, ,(,)]+$/
+        regexp: /\+[0-9,\-, ,(,)]+$/,
       },
       email: {
         required: true,
@@ -87,19 +87,23 @@ $(function () {
         },
       },
     },
+    // highlight: function (element) {
+    //   $(element).closest('.form-control').addClass('is-invalid')
+    // },
+    // unhighlight: function (element) {
+    //   $(element).closest('.form-control').removeClass('is-invalid')
+    // },
     messages: {
       email: {
         email: 'Please enter a <em>valid</em> email address',
         remote: 'This email is already registered.',
+        maxlength: 'Please enter no more than 70 characters.',
       },
       firstname: {
-        maxlength: 'Please enter no more than 100 characters.'
+        maxlength: 'Please enter no more than 100 characters.',
       },
       lastname: {
-        maxlength: 'Please enter no more than 255 characters.'
-      },
-      email: {
-        maxlength: 'Please enter no more than 70 characters.'
+        maxlength: 'Please enter no more than 255 characters.',
       },
     },
     submitHandler: function () {
@@ -137,8 +141,8 @@ $(function () {
         maxlength: 100,
       },
       about: {
-        maxlength: 21844
-      }
+        maxlength: 21844,
+      },
     },
     messages: {
       photo: {
@@ -146,13 +150,13 @@ $(function () {
         filesize: 'File must be less then 5 Mb.',
       },
       company: {
-        maxlength: 'Please enter no more than 70 characters.'
+        maxlength: 'Please enter no more than 70 characters.',
       },
       position: {
-        maxlength: 'Please enter no more than 100 characters.'
+        maxlength: 'Please enter no more than 100 characters.',
       },
       about: {
-        maxlength: 'Please enter no more than 21844 characters.'
+        maxlength: 'Please enter no more than 21844 characters.',
       },
     },
     submitHandler: function (form) {
@@ -160,12 +164,6 @@ $(function () {
       $.ajax({
         url: '/showIcons',
         type: 'POST',
-        // data: ({
-        //   company: $('#company').val(),
-        //   position: $('#position').val(),
-        //   about: $('#about').val(),
-        //   photo: $('#photo').val()
-        // }),
         data: new FormData(form),
         processData: false,
         contentType: false,
@@ -189,22 +187,30 @@ function getCookie (name) {
 
 $(document).ready(function () {
 
-  $('#birthdate').datepicker();
+  $('#birthdate').datepicker()
   $('#birthdate').datepicker({
     minDate: 0,
   })
 
-  $("#birthdate").datepicker({
+  $('#birthdate').datepicker({
     autoclose: true,
-  }).change(function() {
-    $(this).valid();  // triggers the validation test
-  });
+  }).change(function () {
+    $(this).valid()  // triggers the validation test
+  })
 
+  $('#btnNextSecond').bind('click', function () {
+    $.ajax({
+      url: '/getMembersNumber',
+      type: 'POST',
+      datatype: 'html',
+      success: function (data) {
+        $('#btnList').text('All members (' + data + ')')
+      },
+    })
+  })
 
-  // $("#phone").mask("+1 (999) 999-9999");
-
-
-  if ((getCookie('email') !== undefined) && (getCookie('idUser') !== undefined)) {
+  if ((getCookie('email') !== undefined) &&
+    (getCookie('idUser') !== undefined)) {
     onSecondForm()
   }
   else {

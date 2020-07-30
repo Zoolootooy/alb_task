@@ -14,19 +14,24 @@ class ModelMain extends Model
         return $members;
     }
 
-    public function saveData($data)
+    public function getMembersNumber(){
+        $number = $this->conn->query("SELECT COUNT(id) as number FROM person");
+        return $number;
+    }
+
+    public function saveData($firstname, $lastname, $birthdate, $rep_subj, $country_id, $phone, $email)
     {
         $executeQuery = $this->conn->query("
             INSERT INTO person (firstname, lastname, birthdate, rep_subject, country_id, phone, email)
             VALUES (?,?,?,?,?,?,?)",
             [
-                $data['firstname'],
-                $data['lastname'],
-                $data['birthdate'],
-                $data['rep_subj'],
-                $data['country_id'],
-                $data['phone'],
-                $data['email']
+                $firstname,
+                $lastname,
+                $birthdate,
+                $rep_subj,
+                $country_id,
+                $phone,
+                $email
             ]
         );
 
