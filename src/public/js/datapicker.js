@@ -13,6 +13,7 @@
         changeYear: true,
         yearRange: "1920:2002",
         changeMonth: true,
+        autoclose: true
     }
     $.datepicker.setDefaults($.datepicker.regional['en'])
 })()

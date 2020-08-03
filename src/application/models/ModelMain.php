@@ -7,6 +7,17 @@ use application\core\Model;
 class ModelMain extends Model
 {
 
+    public function uploadImage($photo, $tmp){
+        if (isset($photo) && !empty($photo)) {
+            $extension = pathinfo($photo, PATHINFO_EXTENSION);
+            $filename = uniqid() . "." . $extension;;
+            $target = 'public/images/' . $filename;
+            move_uploaded_file($tmp, $target);
+        } else {
+            $filename = null;
+        }
+        return $filename;
+    }
 
     public function getAllMembers()
     {
@@ -19,19 +30,19 @@ class ModelMain extends Model
         return $number;
     }
 
-    public function saveData($firstname, $lastname, $birthdate, $rep_subj, $country_id, $phone, $email)
+    public function saveData($data)
     {
         $executeQuery = $this->conn->query("
             INSERT INTO person (firstname, lastname, birthdate, rep_subject, country_id, phone, email)
             VALUES (?,?,?,?,?,?,?)",
             [
-                $firstname,
-                $lastname,
-                $birthdate,
-                $rep_subj,
-                $country_id,
-                $phone,
-                $email
+                $data['firstname'],
+                $data['lastname'],
+                $data['birthdate'],
+                $data['rep_subj'],
+                $data['country_id'],
+                $data['phone'],
+                $data['email']
             ]
         );
 

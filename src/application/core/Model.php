@@ -8,6 +8,6 @@ abstract class Model
 
     public function __construct()
     {
-        $this->conn = Database::connect();
+        $this->conn = new Database();
     }
 }

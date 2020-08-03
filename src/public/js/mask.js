@@ -37,4 +37,4 @@ $('#phone_mask').change(function() {
   $('#phone').inputmasks(maskOpts);
 });
 
-$('#phone_mask').change();
+$('#phone').inputmasks(maskOpts);

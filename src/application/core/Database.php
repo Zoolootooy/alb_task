@@ -11,7 +11,7 @@ class Database
     private $bConnected = false;
     private $parameters;
 
-    private function __construct()
+    public function __construct()
     {
         $config = require __DIR__ . '/../config/database_config.php';
 
@@ -26,8 +26,6 @@ class Database
                 PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,
             )
         );
-
-        return $this->pdo;
     }
 
     /**
@@ -66,7 +64,7 @@ class Database
     private function init($query, $parameters)
     {
         if (!$this->bConnected) {
-            $this->Connect();
+            $this->__construct();
         }
 
         $this->parameters = $parameters;
@@ -94,14 +92,14 @@ class Database
      *
      * @return PDO object
      */
-    public function connect()
-    {
-        if (self::$pdo === null) {
-            self::$pdo = new self();
-        }
-
-        return self::$pdo;
-    }
+//    public function connect()
+//    {
+//        if (self::$pdo === null) {
+//            self::$pdo = new self();
+//        }
+//
+//        return self::$pdo;
+//    }
 
     /**
      * Combines query text with parameters
